@@ -1,13 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
-
 const Hero = () => {
-  return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted/20 px-4">
+  return <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted/20 px-4">
       <div className="max-w-4xl mx-auto text-center animate-fade-in">
-        <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6">
-          Alex Johnson
-        </h1>
+        <h1 className="text-5xl font-bold text-foreground mb-6 md:text-5xl">Garvit Hindoliya</h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-4">
           Frontend Developer
         </p>
@@ -42,8 +38,6 @@ const Hero = () => {
           <ArrowDown className="h-6 w-6 text-muted-foreground mx-auto" />
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
