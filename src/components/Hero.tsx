@@ -3,11 +3,11 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 const Hero = () => {
   return <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted/20 px-4">
       <div className="max-w-4xl mx-auto text-center animate-fade-in">
-        <div className="mb-8">
+        <div className="mt-12 mb-8">
           <img 
             src="/lovable-uploads/b819af2b-b77b-43af-897d-d69f33ee80c8.png" 
             alt="Garvit Hindoliya" 
-            className="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-primary mx-auto object-cover shadow-lg"
+            className="w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-primary mx-auto object-cover shadow-lg"
           />
         </div>
         <h1 className="text-5xl font-bold text-foreground mb-6 md:text-5xl">Garvit Hindoliya</h1>
