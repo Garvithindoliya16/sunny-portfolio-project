@@ -72,7 +72,7 @@ const CodeParticles = () => {
           itemSize={3}
         />
       </bufferGeometry>
-      <pointsMaterial color="#10b981" size={0.015} sizeAttenuation />
+      <pointsMaterial color="#10b981" size={0.015} sizeAttenuation={true} />
     </points>
   );
 };

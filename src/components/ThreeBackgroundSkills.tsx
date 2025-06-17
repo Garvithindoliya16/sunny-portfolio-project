@@ -44,39 +44,39 @@ const FloatingSkillShape = ({ position, color, shape = 'gear' }: { position: [nu
   );
 };
 
-// Tech DNA helix
-const TechHelix = () => {
-  const helixRef = useRef<THREE.Group>(null!);
+// Simplified skill particles
+const SkillParticles = () => {
+  const particlesRef = useRef<THREE.Points>(null!);
   
   useFrame((state) => {
-    if (helixRef.current) {
-      helixRef.current.rotation.y += 0.01;
-      helixRef.current.rotation.x += 0.002;
+    if (particlesRef.current) {
+      particlesRef.current.rotation.y += 0.002;
+      particlesRef.current.rotation.x += 0.001;
     }
   });
 
-  const helixPoints: JSX.Element[] = [];
-  const radius = 1.5;
-  const height = 6;
-  const segments = 20;
-
-  for (let i = 0; i < segments; i++) {
-    const y = (i / segments) * height - height / 2;
-    const angle = (i / segments) * Math.PI * 4;
-    const x = Math.cos(angle) * radius;
-    const z = Math.sin(angle) * radius;
-    
-    helixPoints.push(
-      <Float key={`helix-${i}`} speed={1.5} rotationIntensity={1} floatIntensity={1}>
-        <mesh position={[x, y, z]}>
-          <sphereGeometry args={[0.1, 8, 8]} />
-          <meshStandardMaterial color={i % 2 === 0 ? '#8b5cf6' : '#06b6d4'} />
-        </mesh>
-      </Float>
-    );
+  const particleCount = 150;
+  const positions = new Float32Array(particleCount * 3);
+  
+  for (let i = 0; i < particleCount; i++) {
+    positions[i * 3] = (Math.random() - 0.5) * 14;
+    positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
   }
 
-  return <group ref={helixRef}>{helixPoints}</group>;
+  return (
+    <points ref={particlesRef}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          count={particleCount}
+          array={positions}
+          itemSize={3}
+        />
+      </bufferGeometry>
+      <pointsMaterial color="#8b5cf6" size={0.018} sizeAttenuation={true} />
+    </points>
+  );
 };
 
 // Floating code brackets
@@ -127,8 +127,8 @@ const ThreeBackgroundSkills = () => {
         <FloatingSkillShape position={[4, 1, -1]} color="#06b6d4" shape="crystal" />
         <FloatingSkillShape position={[-1, 2, -3]} color="#10b981" shape="hexagon" />
         
-        {/* Tech DNA helix */}
-        <TechHelix />
+        {/* Skill particles */}
+        <SkillParticles />
         
         {/* Floating brackets */}
         <FloatingBrackets />

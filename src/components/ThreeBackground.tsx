@@ -66,7 +66,7 @@ const Particles = () => {
           itemSize={3}
         />
       </bufferGeometry>
-      <pointsMaterial color="#8b5cf6" size={0.02} sizeAttenuation />
+      <pointsMaterial color="#8b5cf6" size={0.02} sizeAttenuation={true} />
     </points>
   );
 };

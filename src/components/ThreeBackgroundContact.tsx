@@ -43,36 +43,38 @@ const FloatingContactShape = ({ position, color, shape = 'message' }: { position
   );
 };
 
-// Floating connection lines
-const ConnectionLines = () => {
-  const linesRef = useRef<THREE.Group>(null!);
+// Simple floating particles instead of lines
+const ContactParticles = () => {
+  const particlesRef = useRef<THREE.Points>(null!);
   
   useFrame((state) => {
-    if (linesRef.current) {
-      linesRef.current.rotation.z += 0.002;
-      linesRef.current.rotation.y += 0.001;
+    if (particlesRef.current) {
+      particlesRef.current.rotation.y += 0.001;
+      particlesRef.current.rotation.x += 0.0005;
     }
   });
 
-  const createLine = (start: [number, number, number], end: [number, number, number], color: string) => {
-    const points = [new THREE.Vector3(...start), new THREE.Vector3(...end)];
-    const geometry = new THREE.BufferGeometry().setFromPoints(points);
-    
-    return (
-      <line key={`${start.join(',')}-${end.join(',')}`}>
-        <bufferGeometry attach="geometry" {...geometry} />
-        <lineBasicMaterial attach="material" color={color} transparent opacity={0.4} />
-      </line>
-    );
-  };
+  const particleCount = 80;
+  const positions = new Float32Array(particleCount * 3);
+  
+  for (let i = 0; i < particleCount; i++) {
+    positions[i * 3] = (Math.random() - 0.5) * 10;
+    positions[i * 3 + 1] = (Math.random() - 0.5) * 8;
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 8;
+  }
 
   return (
-    <group ref={linesRef}>
-      {createLine([-2, 1, 0], [2, -1, 0], '#3b82f6')}
-      {createLine([1, 2, 0], [-1, -2, 0], '#8b5cf6')}
-      {createLine([-3, 0, 0], [3, 0, 0], '#10b981')}
-      {createLine([0, -3, 0], [0, 3, 0], '#06b6d4')}
-    </group>
+    <points ref={particlesRef}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          count={particleCount}
+          array={positions}
+          itemSize={3}
+        />
+      </bufferGeometry>
+      <pointsMaterial color="#06b6d4" size={0.02} sizeAttenuation={true} />
+    </points>
   );
 };
 
@@ -135,8 +137,8 @@ const ThreeBackgroundContact = () => {
         <FloatingContactShape position={[3, 1, -1]} color="#8b5cf6" shape="envelope" />
         <FloatingContactShape position={[-1, 2, -3]} color="#10b981" shape="network" />
         
-        {/* Connection lines */}
-        <ConnectionLines />
+        {/* Contact particles */}
+        <ContactParticles />
         
         {/* Orbiting elements */}
         <OrbitingElements />
