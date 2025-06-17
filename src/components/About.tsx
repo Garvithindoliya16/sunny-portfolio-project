@@ -12,6 +12,39 @@ const About = () => {
       <div className="absolute bottom-10 right-10 w-48 h-48 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       <div className="absolute top-1/2 left-1/3 w-32 h-32 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 rounded-full blur-2xl animate-pulse delay-500" />
       
+      {/* Corner tech elements */}
+      <div className="absolute top-6 left-6 animate-float">
+        <div className="w-8 h-8 border-2 border-purple-500/30 transform rotate-45">
+          <div className="w-2 h-2 bg-purple-500/50 rounded-full absolute top-1 left-1"></div>
+          <div className="w-2 h-2 bg-cyan-500/50 rounded-full absolute bottom-1 right-1"></div>
+        </div>
+      </div>
+      <div className="absolute top-6 right-6 animate-float delay-200">
+        <Code className="h-8 w-8 text-cyan-500/40 animate-pulse" />
+      </div>
+      <div className="absolute bottom-6 left-6 animate-float delay-400">
+        <div className="w-6 h-6 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full animate-spin-slow"></div>
+      </div>
+      <div className="absolute bottom-6 right-6 animate-float delay-600">
+        <Target className="h-7 w-7 text-purple-500/40 animate-pulse" />
+      </div>
+      
+      {/* Corner grid pattern */}
+      <div className="absolute top-16 left-16 w-12 h-12 opacity-20">
+        <div className="grid grid-cols-3 gap-1 h-full">
+          {[...Array(9)].map((_, i) => (
+            <div key={i} className="bg-purple-500/30 rounded-sm animate-pulse" style={{ animationDelay: `${i * 100}ms` }}></div>
+          ))}
+        </div>
+      </div>
+      <div className="absolute top-16 right-16 w-12 h-12 opacity-20">
+        <div className="grid grid-cols-3 gap-1 h-full">
+          {[...Array(9)].map((_, i) => (
+            <div key={i} className="bg-cyan-500/30 rounded-sm animate-pulse" style={{ animationDelay: `${i * 150}ms` }}></div>
+          ))}
+        </div>
+      </div>
+      
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <div className="flex items-center justify-center gap-2 mb-4">

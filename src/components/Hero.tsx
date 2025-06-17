@@ -16,6 +16,26 @@ const Hero = () => {
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-xl animate-pulse delay-1000" />
       <div className="absolute top-1/2 right-20 w-24 h-24 bg-cyan-500/10 rounded-full blur-xl animate-pulse delay-500" />
       
+      {/* Corner decorative elements */}
+      <div className="absolute top-8 left-8 w-16 h-16 border-2 border-purple-500/20 rounded-lg rotate-45 animate-spin-slow"></div>
+      <div className="absolute top-8 right-8 w-20 h-20 border-2 border-cyan-500/20 rounded-full animate-pulse"></div>
+      <div className="absolute bottom-8 left-8 w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full animate-bounce delay-200"></div>
+      <div className="absolute bottom-8 right-8 w-14 h-14 border-2 border-emerald-500/30 rounded-lg rotate-12 animate-pulse delay-700"></div>
+      
+      {/* Corner sparkle effects */}
+      <div className="absolute top-16 left-20 animate-ping">
+        <Sparkles className="h-4 w-4 text-purple-400 opacity-60" />
+      </div>
+      <div className="absolute top-20 right-16 animate-ping delay-300">
+        <Sparkles className="h-5 w-5 text-cyan-400 opacity-50" />
+      </div>
+      <div className="absolute bottom-16 left-16 animate-ping delay-500">
+        <Sparkles className="h-3 w-3 text-pink-400 opacity-70" />
+      </div>
+      <div className="absolute bottom-20 right-20 animate-ping delay-1000">
+        <Sparkles className="h-4 w-4 text-emerald-400 opacity-60" />
+      </div>
+      
       <div className="max-w-4xl mx-auto text-center animate-fade-in relative z-10">
         <div className="mt-12 mb-8 relative">
           {/* Glowing effect behind image */}

@@ -67,6 +67,44 @@ const Projects = () => {
       <div className="absolute bottom-20 left-20 w-48 h-48 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       <div className="absolute top-1/3 left-1/2 w-32 h-32 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-full blur-2xl animate-pulse delay-500" />
       
+      {/* Corner project indicators */}
+      <div className="absolute top-6 left-6 animate-float">
+        <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg flex items-center justify-center transform rotate-12">
+          <Rocket className="h-6 w-6 text-blue-500/60" />
+        </div>
+      </div>
+      <div className="absolute top-6 right-6 animate-float delay-200">
+        <div className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full flex items-center justify-center">
+          <Star className="h-6 w-6 text-purple-500/60 animate-pulse" />
+        </div>
+      </div>
+      <div className="absolute bottom-6 left-6 animate-float delay-400">
+        <div className="w-10 h-10 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-lg flex items-center justify-center">
+          <span className="text-sm font-bold text-emerald-600">6+</span>
+        </div>
+      </div>
+      <div className="absolute bottom-6 right-6 animate-float delay-600">
+        <div className="w-12 h-12 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full flex items-center justify-center transform -rotate-12">
+          <ExternalLink className="h-5 w-5 text-yellow-600/60" />
+        </div>
+      </div>
+      
+      {/* Corner connection dots */}
+      <div className="absolute top-20 left-12">
+        <div className="flex space-x-2">
+          <div className="w-2 h-2 bg-blue-500/40 rounded-full animate-ping"></div>
+          <div className="w-2 h-2 bg-purple-500/40 rounded-full animate-ping delay-200"></div>
+          <div className="w-2 h-2 bg-pink-500/40 rounded-full animate-ping delay-400"></div>
+        </div>
+      </div>
+      <div className="absolute top-20 right-12">
+        <div className="flex space-x-2">
+          <div className="w-2 h-2 bg-cyan-500/40 rounded-full animate-ping delay-100"></div>
+          <div className="w-2 h-2 bg-blue-500/40 rounded-full animate-ping delay-300"></div>
+          <div className="w-2 h-2 bg-purple-500/40 rounded-full animate-ping delay-500"></div>
+        </div>
+      </div>
+      
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <div className="flex items-center justify-center gap-2 mb-4">

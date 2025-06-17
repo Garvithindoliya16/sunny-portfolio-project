@@ -14,6 +14,36 @@ const Skills = () => {
       {/* 3D Background */}
       <ThreeBackgroundSkills />
       
+      {/* Corner skill icons */}
+      <div className="absolute top-8 left-8 animate-float">
+        <div className="w-10 h-10 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center">
+          <span className="text-xs font-bold text-purple-600">&lt;/&gt;</span>
+        </div>
+      </div>
+      <div className="absolute top-8 right-8 animate-float delay-300">
+        <div className="w-10 h-10 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full flex items-center justify-center">
+          <span className="text-xs font-bold text-cyan-600">JS</span>
+        </div>
+      </div>
+      <div className="absolute bottom-8 left-8 animate-float delay-500">
+        <div className="w-10 h-10 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-lg rotate-45 flex items-center justify-center">
+          <span className="text-xs font-bold text-emerald-600 -rotate-45">⚛</span>
+        </div>
+      </div>
+      <div className="absolute bottom-8 right-8 animate-float delay-700">
+        <div className="w-10 h-10 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full flex items-center justify-center">
+          <span className="text-xs font-bold text-yellow-600">TS</span>
+        </div>
+      </div>
+      
+      {/* Corner decorative lines */}
+      <div className="absolute top-16 left-4 w-8 h-0.5 bg-gradient-to-r from-purple-500/40 to-transparent animate-pulse"></div>
+      <div className="absolute top-4 left-16 w-0.5 h-8 bg-gradient-to-b from-purple-500/40 to-transparent animate-pulse delay-200"></div>
+      <div className="absolute top-16 right-4 w-8 h-0.5 bg-gradient-to-l from-cyan-500/40 to-transparent animate-pulse delay-400"></div>
+      <div className="absolute top-4 right-16 w-0.5 h-8 bg-gradient-to-b from-cyan-500/40 to-transparent animate-pulse delay-600"></div>
+      <div className="absolute bottom-16 left-4 w-8 h-0.5 bg-gradient-to-r from-emerald-500/40 to-transparent animate-pulse delay-800"></div>
+      <div className="absolute bottom-4 left-16 w-0.5 h-8 bg-gradient-to-t from-emerald-500/40 to-transparent animate-pulse delay-1000"></div>
+      
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <div className="flex items-center justify-center gap-2 mb-4">
