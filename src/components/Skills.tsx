@@ -7,15 +7,6 @@ const Skills = () => {
     "HTML5", "CSS3", "Tailwind CSS", "SCSS", "Styled Components"
   ];
 
-  const toolsSkills = [
-    "Git", "Webpack", "Vite", "npm/yarn", "ESLint", "Prettier", 
-    "Figma", "Adobe XD", "Chrome DevTools", "VS Code"
-  ];
-
-  const backendSkills = [
-    "Node.js", "Express", "REST APIs", "GraphQL", "PostgreSQL", 
-    "MongoDB", "Firebase", "Supabase", "AWS", "Vercel"
-  ];
 
   return (
     <section className="py-20 px-4 bg-muted/30">
@@ -29,52 +20,14 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <Card className="hover-scale transition-all duration-300">
+        <div className="flex justify-center">
+          <Card className="hover-scale transition-all duration-300 w-full max-w-2xl">
             <CardHeader>
-              <CardTitle className="text-center text-foreground">Frontend</CardTitle>
+              <CardTitle className="text-center text-foreground">Frontend Skills</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 justify-center">
                 {frontendSkills.map((skill) => (
-                  <Badge 
-                    key={skill} 
-                    variant="secondary" 
-                    className="px-3 py-1 text-sm hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
-                  >
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="hover-scale transition-all duration-300">
-            <CardHeader>
-              <CardTitle className="text-center text-foreground">Tools & Workflow</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2">
-                {toolsSkills.map((skill) => (
-                  <Badge 
-                    key={skill} 
-                    variant="secondary" 
-                    className="px-3 py-1 text-sm hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
-                  >
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="hover-scale transition-all duration-300">
-            <CardHeader>
-              <CardTitle className="text-center text-foreground">Backend & Database</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2">
-                {backendSkills.map((skill) => (
                   <Badge 
                     key={skill} 
                     variant="secondary" 
