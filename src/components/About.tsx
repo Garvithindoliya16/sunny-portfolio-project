@@ -1,9 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Palette, Zap, Sparkles, Trophy, Target } from "lucide-react";
+import ThreeBackgroundAbout from "./ThreeBackgroundAbout";
 
 const About = () => {
   return (
     <section className="py-20 px-4 bg-background relative overflow-hidden">
+      {/* 3D Background */}
+      <ThreeBackgroundAbout />
       {/* Animated background elements */}
       <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-10 right-10 w-48 h-48 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000" />

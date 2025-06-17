@@ -3,10 +3,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Github, Linkedin, Mail, MapPin, Phone, Sparkles, Send, MessageCircle } from "lucide-react";
+import ThreeBackgroundContact from "./ThreeBackgroundContact";
 
 const Contact = () => {
   return (
     <section className="py-20 px-4 bg-gradient-to-br from-muted/30 to-background relative overflow-hidden">
+      {/* 3D Background */}
+      <ThreeBackgroundContact />
       {/* Animated background elements */}
       <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-10 right-10 w-48 h-48 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000" />

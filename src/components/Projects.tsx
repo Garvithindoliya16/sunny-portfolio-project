@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github, Sparkles, Star, Rocket } from "lucide-react";
+import ThreeBackgroundProjects from "./ThreeBackgroundProjects";
 
 const Projects = () => {
   const projects = [
@@ -59,6 +60,8 @@ const Projects = () => {
 
   return (
     <section className="py-20 px-4 bg-gradient-to-br from-background to-muted/20 relative overflow-hidden">
+      {/* 3D Background */}
+      <ThreeBackgroundProjects />
       {/* Animated background elements */}
       <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 left-20 w-48 h-48 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
