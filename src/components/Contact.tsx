@@ -75,7 +75,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-medium text-foreground group-hover:text-blue-600 transition-colors">Email</p>
-                  <p className="text-muted-foreground">garvit.hindoliya@email.com</p>
+                  <p className="text-muted-foreground">garvithindoliyaprojects@gmail.com</p>
                 </div>
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-auto">
                   <Sparkles className="h-4 w-4 text-blue-400" />
@@ -112,13 +112,13 @@ const Contact = () => {
             <div>
               <h4 className="text-lg font-semibold text-foreground mb-4">Follow Me</h4>
               <div className="flex space-x-4">
-                <a href="#" className="group w-12 h-12 bg-gradient-to-r from-gray-700 to-gray-900 rounded-full flex items-center justify-center hover:from-purple-600 hover:to-purple-700 transition-all duration-300 hover-scale shadow-lg">
+                <a href="https://github.com/Garvithindoliya16" target="_blank" rel="noopener noreferrer" className="group w-12 h-12 bg-gradient-to-r from-gray-700 to-gray-900 rounded-full flex items-center justify-center hover:from-purple-600 hover:to-purple-700 transition-all duration-300 hover-scale shadow-lg">
                   <Github className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-300" />
                 </a>
-                <a href="#" className="group w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center hover:from-blue-500 hover:to-blue-700 transition-all duration-300 hover-scale shadow-lg">
+                <a href="https://www.linkedin.com/in/garvithindoliya/" target="_blank" rel="noopener noreferrer" className="group w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center hover:from-blue-500 hover:to-blue-700 transition-all duration-300 hover-scale shadow-lg">
                   <Linkedin className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-300" />
                 </a>
-                <a href="#" className="group w-12 h-12 bg-gradient-to-r from-red-500 to-red-700 rounded-full flex items-center justify-center hover:from-red-400 hover:to-red-600 transition-all duration-300 hover-scale shadow-lg">
+                <a href="mailto:garvithindoliyaprojects@gmail.com" className="group w-12 h-12 bg-gradient-to-r from-red-500 to-red-700 rounded-full flex items-center justify-center hover:from-red-400 hover:to-red-600 transition-all duration-300 hover-scale shadow-lg">
                   <Mail className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-300" />
                 </a>
               </div>

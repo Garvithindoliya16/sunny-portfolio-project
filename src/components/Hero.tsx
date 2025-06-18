@@ -85,13 +85,13 @@ const Hero = () => {
         </div>
 
         <div className="flex justify-center space-x-8 mb-12 animate-fade-in delay-700">
-          <a href="#" className="group p-3 rounded-full bg-muted/30 backdrop-blur-sm hover:bg-purple-600/20 transition-all duration-300 hover-scale">
+          <a href="https://github.com/Garvithindoliya16" target="_blank" rel="noopener noreferrer" className="group p-3 rounded-full bg-muted/30 backdrop-blur-sm hover:bg-purple-600/20 transition-all duration-300 hover-scale">
             <Github className="h-6 w-6 text-muted-foreground group-hover:text-purple-400 transition-colors" />
           </a>
-          <a href="#" className="group p-3 rounded-full bg-muted/30 backdrop-blur-sm hover:bg-cyan-600/20 transition-all duration-300 hover-scale">
+          <a href="https://www.linkedin.com/in/garvithindoliya/" target="_blank" rel="noopener noreferrer" className="group p-3 rounded-full bg-muted/30 backdrop-blur-sm hover:bg-cyan-600/20 transition-all duration-300 hover-scale">
             <Linkedin className="h-6 w-6 text-muted-foreground group-hover:text-cyan-400 transition-colors" />
           </a>
-          <a href="#" className="group p-3 rounded-full bg-muted/30 backdrop-blur-sm hover:bg-pink-600/20 transition-all duration-300 hover-scale">
+          <a href="mailto:garvithindoliyaprojects@gmail.com" className="group p-3 rounded-full bg-muted/30 backdrop-blur-sm hover:bg-pink-600/20 transition-all duration-300 hover-scale">
             <Mail className="h-6 w-6 text-muted-foreground group-hover:text-pink-400 transition-colors" />
           </a>
         </div>
