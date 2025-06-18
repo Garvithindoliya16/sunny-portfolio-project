@@ -7,46 +7,35 @@ import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
 import ThreeBackgroundContact from "./ThreeBackgroundContact";
-
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formRef.current) return;
-
     setIsLoading(true);
-
     try {
-      await emailjs.sendForm(
-        'service_42knvge',
-        'template_ibo9tw8',
-        formRef.current,
-        'CmSTojk7OI7xcvX2u'
-      );
-
+      await emailjs.sendForm('service_42knvge', 'template_ibo9tw8', formRef.current, 'CmSTojk7OI7xcvX2u');
       toast({
         title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        description: "Thank you for reaching out. I'll get back to you soon."
       });
-
       formRef.current.reset();
     } catch (error) {
       console.error('EmailJS error:', error);
       toast({
         title: "Failed to send message",
         description: "Please try again or contact me directly via email.",
-        variant: "destructive",
+        variant: "destructive"
       });
     } finally {
       setIsLoading(false);
     }
   };
-
-  return (
-    <section className="py-20 px-4 bg-gradient-to-br from-muted/30 to-background relative overflow-hidden">
+  return <section className="py-20 px-4 bg-gradient-to-br from-muted/30 to-background relative overflow-hidden">
       {/* 3D Background */}
       <ThreeBackgroundContact />
       {/* Animated background elements */}
@@ -173,30 +162,16 @@ const Contact = () => {
                   <Input name="from_email" type="email" required placeholder="john@example.com" className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-blue-500/50 focus:ring-blue-500/20 transition-all duration-300" />
                 </div>
                 
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
-                    Subject
-                  </label>
-                  <Input name="subject" required placeholder="Project Discussion" className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-cyan-500/50 focus:ring-cyan-500/20 transition-all duration-300" />
-                </div>
+                
                 
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Message
                   </label>
-                  <Textarea 
-                    name="message"
-                    required
-                    placeholder="Tell me about your project..."
-                    className="min-h-[120px] border-muted/50 bg-background/50 backdrop-blur-sm focus:border-emerald-500/50 focus:ring-emerald-500/20 transition-all duration-300 resize-none"
-                  />
+                  <Textarea name="message" required placeholder="Tell me about your project..." className="min-h-[120px] border-muted/50 bg-background/50 backdrop-blur-sm focus:border-emerald-500/50 focus:ring-emerald-500/20 transition-all duration-300 resize-none" />
                 </div>
                 
-                <Button 
-                  type="submit" 
-                  disabled={isLoading}
-                  className="w-full hover-scale bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
+                <Button type="submit" disabled={isLoading} className="w-full hover-scale bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
                   <Send className="mr-2 h-4 w-4" />
                   {isLoading ? "Sending..." : "Send Message"}
                 </Button>
@@ -205,8 +180,6 @@ const Contact = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
