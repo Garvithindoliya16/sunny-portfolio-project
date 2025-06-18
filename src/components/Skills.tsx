@@ -10,6 +10,10 @@ const Skills = () => {
     "HTML5", "CSS3", "Tailwind CSS", "SCSS", "Styled Components"
   ];
 
+  const pythonSkills = [
+    "NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn"
+  ];
+
   const interactiveElementRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -137,11 +141,11 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="flex justify-center animate-fade-in delay-200">
-          <Card className="hover-scale transition-all duration-500 hover:shadow-2xl w-full max-w-2xl border-0 bg-gradient-to-br from-background/80 to-muted/50 backdrop-blur-sm relative overflow-hidden">
+        <div className="grid lg:grid-cols-2 gap-8 animate-fade-in delay-200">
+          <Card className="hover-scale transition-all duration-500 hover:shadow-2xl border-0 bg-gradient-to-br from-background/80 to-muted/50 backdrop-blur-sm relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500" />
             <CardHeader className="relative z-10">
-              <CardTitle className="text-center bg-gradient-to-r from-foreground to-purple-600 bg-clip-text text-transparent">Frontend Skills</CardTitle>
+              <CardTitle className="text-center bg-gradient-to-r from-foreground to-purple-600 bg-clip-text text-transparent">Frontend Development</CardTitle>
             </CardHeader>
             <CardContent className="relative z-10">
               <div className="flex flex-wrap gap-2 justify-center">
@@ -163,6 +167,35 @@ const Skills = () => {
               </div>
               <div className="absolute bottom-4 left-4 opacity-60 hover:opacity-100 transition-opacity duration-300">
                 <Sparkles className="h-4 w-4 text-cyan-400 animate-pulse" />
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover-scale transition-all duration-500 hover:shadow-2xl border-0 bg-gradient-to-br from-background/80 to-muted/50 backdrop-blur-sm relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500" />
+            <CardHeader className="relative z-10">
+              <CardTitle className="text-center bg-gradient-to-r from-foreground to-emerald-600 bg-clip-text text-transparent">Python & Data Science</CardTitle>
+            </CardHeader>
+            <CardContent className="relative z-10">
+              <div className="flex flex-wrap gap-2 justify-center">
+                {pythonSkills.map((skill, index) => (
+                  <Badge 
+                    key={skill} 
+                    variant="secondary" 
+                    className="px-3 py-1 text-sm bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border-emerald-500/20 hover:from-emerald-500/20 hover:to-blue-500/20 hover:border-emerald-500/40 transition-all duration-300 cursor-default hover-scale"
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+              
+              {/* Floating sparkles */}
+              <div className="absolute top-4 right-4 opacity-60 hover:opacity-100 transition-opacity duration-300">
+                <Sparkles className="h-4 w-4 text-emerald-400 animate-pulse" />
+              </div>
+              <div className="absolute bottom-4 left-4 opacity-60 hover:opacity-100 transition-opacity duration-300">
+                <Sparkles className="h-4 w-4 text-blue-400 animate-pulse" />
               </div>
             </CardContent>
           </Card>
