@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sparkles } from "lucide-react";
+import { useRef, useEffect } from "react";
 import ThreeBackgroundSkills from "./ThreeBackgroundSkills";
 
 const Skills = () => {
@@ -9,8 +10,42 @@ const Skills = () => {
     "HTML5", "CSS3", "Tailwind CSS", "SCSS", "Styled Components"
   ];
 
+  const interactiveElementRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!interactiveElementRef.current || !sectionRef.current) return;
+      
+      const section = sectionRef.current;
+      const rect = section.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      
+      const element = interactiveElementRef.current;
+      const rotateX = (y - 0.5) * 30;
+      const rotateY = (x - 0.5) * 30;
+      const translateX = (x - 0.5) * 20;
+      const translateY = (y - 0.5) * 20;
+      
+      element.style.transform = `
+        rotateX(${-rotateX}deg) 
+        rotateY(${rotateY}deg) 
+        translateX(${translateX}px) 
+        translateY(${translateY}px)
+        translateZ(50px)
+      `;
+    };
+
+    const section = sectionRef.current;
+    if (section) {
+      section.addEventListener('mousemove', handleMouseMove);
+      return () => section.removeEventListener('mousemove', handleMouseMove);
+    }
+  }, []);
+
   return (
-    <section className="py-20 px-4 bg-muted/30 relative overflow-hidden">
+    <section ref={sectionRef} className="py-20 px-4 bg-muted/30 relative overflow-hidden" style={{ perspective: '1000px' }}>
       {/* 3D Background */}
       <ThreeBackgroundSkills />
       
@@ -43,6 +78,50 @@ const Skills = () => {
       <div className="absolute top-4 right-16 w-0.5 h-8 bg-gradient-to-b from-cyan-500/40 to-transparent animate-pulse delay-600"></div>
       <div className="absolute bottom-16 left-4 w-8 h-0.5 bg-gradient-to-r from-emerald-500/40 to-transparent animate-pulse delay-800"></div>
       <div className="absolute bottom-4 left-16 w-0.5 h-8 bg-gradient-to-t from-emerald-500/40 to-transparent animate-pulse delay-1000"></div>
+      
+      {/* Large Interactive 3D Element */}
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden xl:block pointer-events-none">
+        <div 
+          ref={interactiveElementRef}
+          className="w-80 h-80 transition-transform duration-150 ease-out"
+          style={{ transformStyle: 'preserve-3d' }}
+        >
+          {/* Main geometric shape */}
+          <div className="relative w-full h-full">
+            {/* Central hexagon */}
+            <div className="absolute inset-0 border-4 border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-cyan-500/10 backdrop-blur-sm"
+                 style={{ clipPath: 'polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%)' }}>
+              <div className="absolute inset-4 border-2 border-cyan-500/40 bg-gradient-to-tr from-cyan-500/5 to-purple-500/5"
+                   style={{ clipPath: 'polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%)' }}></div>
+            </div>
+            
+            {/* Floating tech symbols */}
+            <div className="absolute top-12 left-12 w-8 h-8 bg-gradient-to-r from-purple-500/40 to-pink-500/40 rounded-lg flex items-center justify-center animate-float">
+              <span className="text-white font-bold text-sm">⚛</span>
+            </div>
+            <div className="absolute top-16 right-16 w-8 h-8 bg-gradient-to-r from-cyan-500/40 to-blue-500/40 rounded-full flex items-center justify-center animate-float delay-200">
+              <span className="text-white font-bold text-xs">TS</span>
+            </div>
+            <div className="absolute bottom-20 left-20 w-8 h-8 bg-gradient-to-r from-emerald-500/40 to-teal-500/40 rounded-lg flex items-center justify-center animate-float delay-400">
+              <span className="text-white font-bold text-xs">JS</span>
+            </div>
+            <div className="absolute bottom-12 right-12 w-8 h-8 bg-gradient-to-r from-yellow-500/40 to-orange-500/40 rounded-full flex items-center justify-center animate-float delay-600">
+              <span className="text-white font-bold text-xs">&lt;/&gt;</span>
+            </div>
+            
+            {/* Central glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-radial from-purple-500/20 via-cyan-500/10 to-transparent rounded-full blur-xl"></div>
+            
+            {/* Orbiting particles */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 animate-spin-slow">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-purple-400 rounded-full opacity-60"></div>
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-cyan-400 rounded-full opacity-60"></div>
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-emerald-400 rounded-full opacity-60"></div>
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-yellow-400 rounded-full opacity-60"></div>
+            </div>
+          </div>
+        </div>
+      </div>
       
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-fade-in">
