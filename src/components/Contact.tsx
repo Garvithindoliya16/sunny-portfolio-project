@@ -3,9 +3,48 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Github, Linkedin, Mail, MapPin, Phone, Sparkles, Send, MessageCircle } from "lucide-react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { useToast } from "@/hooks/use-toast";
 import ThreeBackgroundContact from "./ThreeBackgroundContact";
 
 const Contact = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+
+    setIsLoading(true);
+
+    try {
+      await emailjs.sendForm(
+        'service_42knvge',
+        'template_ibo9tw8',
+        formRef.current,
+        'CmSTojk7OI7xcvX2u'
+      );
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      formRef.current.reset();
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <section className="py-20 px-4 bg-gradient-to-br from-muted/30 to-background relative overflow-hidden">
       {/* 3D Background */}
@@ -111,19 +150,19 @@ const Contact = () => {
             
             <CardContent className="p-8 relative z-10">
               <h3 className="text-xl font-bold bg-gradient-to-r from-foreground to-purple-600 bg-clip-text text-transparent mb-6">Send Me a Message</h3>
-              <form className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       First Name
                     </label>
-                    <Input placeholder="John" className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-purple-500/50 focus:ring-purple-500/20 transition-all duration-300" />
+                    <Input name="from_name" required placeholder="John" className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-purple-500/50 focus:ring-purple-500/20 transition-all duration-300" />
                   </div>
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Last Name
                     </label>
-                    <Input placeholder="Doe" className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-purple-500/50 focus:ring-purple-500/20 transition-all duration-300" />
+                    <Input name="last_name" placeholder="Doe" className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-purple-500/50 focus:ring-purple-500/20 transition-all duration-300" />
                   </div>
                 </div>
                 
@@ -131,14 +170,14 @@ const Contact = () => {
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Email
                   </label>
-                  <Input type="email" placeholder="john@example.com" className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-blue-500/50 focus:ring-blue-500/20 transition-all duration-300" />
+                  <Input name="from_email" type="email" required placeholder="john@example.com" className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-blue-500/50 focus:ring-blue-500/20 transition-all duration-300" />
                 </div>
                 
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Subject
                   </label>
-                  <Input placeholder="Project Discussion" className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-cyan-500/50 focus:ring-cyan-500/20 transition-all duration-300" />
+                  <Input name="subject" required placeholder="Project Discussion" className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-cyan-500/50 focus:ring-cyan-500/20 transition-all duration-300" />
                 </div>
                 
                 <div>
@@ -146,14 +185,20 @@ const Contact = () => {
                     Message
                   </label>
                   <Textarea 
+                    name="message"
+                    required
                     placeholder="Tell me about your project..."
                     className="min-h-[120px] border-muted/50 bg-background/50 backdrop-blur-sm focus:border-emerald-500/50 focus:ring-emerald-500/20 transition-all duration-300 resize-none"
                   />
                 </div>
                 
-                <Button className="w-full hover-scale bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+                <Button 
+                  type="submit" 
+                  disabled={isLoading}
+                  className="w-full hover-scale bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
                   <Send className="mr-2 h-4 w-4" />
-                  Send Message
+                  {isLoading ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </CardContent>
