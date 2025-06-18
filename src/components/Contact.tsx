@@ -101,7 +101,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-medium text-foreground group-hover:text-purple-600 transition-colors">Location</p>
-                  <p className="text-muted-foreground">Mumbai, India</p>
+                  <p className="text-muted-foreground">Indore, India</p>
                 </div>
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-auto">
                   <Sparkles className="h-4 w-4 text-purple-400" />
