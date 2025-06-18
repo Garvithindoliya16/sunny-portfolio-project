@@ -172,9 +172,9 @@ const Skills = () => {
           </Card>
 
           <Card className="hover-scale transition-all duration-500 hover:shadow-2xl border-0 bg-gradient-to-br from-background/80 to-muted/50 backdrop-blur-sm relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500" />
             <CardHeader className="relative z-10">
-              <CardTitle className="text-center bg-gradient-to-r from-foreground to-emerald-600 bg-clip-text text-transparent">Python & Data Science</CardTitle>
+              <CardTitle className="text-center bg-gradient-to-r from-foreground to-cyan-600 bg-clip-text text-transparent">Python & Data Science</CardTitle>
             </CardHeader>
             <CardContent className="relative z-10">
               <div className="flex flex-wrap gap-2 justify-center">
@@ -182,7 +182,7 @@ const Skills = () => {
                   <Badge 
                     key={skill} 
                     variant="secondary" 
-                    className="px-3 py-1 text-sm bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border-emerald-500/20 hover:from-emerald-500/20 hover:to-blue-500/20 hover:border-emerald-500/40 transition-all duration-300 cursor-default hover-scale"
+                    className="px-3 py-1 text-sm bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border-cyan-500/20 hover:from-cyan-500/20 hover:to-purple-500/20 hover:border-cyan-500/40 transition-all duration-300 cursor-default hover-scale"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     {skill}
@@ -192,10 +192,10 @@ const Skills = () => {
               
               {/* Floating sparkles */}
               <div className="absolute top-4 right-4 opacity-60 hover:opacity-100 transition-opacity duration-300">
-                <Sparkles className="h-4 w-4 text-emerald-400 animate-pulse" />
+                <Sparkles className="h-4 w-4 text-cyan-400 animate-pulse" />
               </div>
               <div className="absolute bottom-4 left-4 opacity-60 hover:opacity-100 transition-opacity duration-300">
-                <Sparkles className="h-4 w-4 text-blue-400 animate-pulse" />
+                <Sparkles className="h-4 w-4 text-purple-400 animate-pulse" />
               </div>
             </CardContent>
           </Card>
