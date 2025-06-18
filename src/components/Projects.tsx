@@ -9,7 +9,7 @@ const Projects = () => {
       title: "E-Commerce Dashboard",
       description: "A comprehensive admin dashboard for managing online stores with real-time analytics, inventory management, and order processing.",
       image: "https://garvithindoliya16.github.io/My-portfolio/usability.png",
-      technologies: ["Html","Css","JavaScript"],
+      technologies: ["Html,Css,JavaScript"],
       liveUrl: "#",
       githubUrl: "https://garvithindoliya16.github.io/Usabilityhub-clone/"
     },
@@ -33,25 +33,25 @@ const Projects = () => {
       title: "Portfolio Website",
       description: "A responsive portfolio website showcasing creative work with smooth animations, optimized performance, and modern design.",
       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
-      technologies: ["Html","css","Js"],
-      liveUrl: "https://garvithindoliya16.github.io/My-portfolio/",
-      githubUrl: "https://garvithindoliya16.github.io/My-portfolio/"
-    },
-    {
-      title: "Online Food Ordering Dashboard",
-      description: "An Online Food Ordering Dashboard provides a centralized interface for users to browse menus, place orders, track deliveries, and manage payments seamlessly in real time.",
-      image: "https://garvithindoliya16.github.io/My-portfolio/recipe.png",
-      technologies:["Html","Css","JavaScript"],
+      technologies: ["Next.js", "SCSS", "Framer Motion", "Vercel", "CMS"],
       liveUrl: "#",
       githubUrl: "#"
     },
     {
-      title: "Fitness Tracking Website",
+      title: "Social Media Dashboard",
+      description: "Analytics dashboard for social media management with data visualization, scheduling tools, and performance metrics.",
+      image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=500&h=300&fit=crop",
+      technologies: ["React", "D3.js", "Express", "PostgreSQL", "JWT"],
+      liveUrl: "#",
+      githubUrl: "#"
+    },
+    {
+      title: "Fitness Tracking App",
       description: "Mobile-first fitness application with workout tracking, progress visualization, and social features for motivation.",
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop",
-      technologies: ["React", "Gsap"],
-      liveUrl: "https://garvithindoliya16.github.io/Jai-Parshuram-Gym/",
-      githubUrl: "https://garvithindoliya16.github.io/Jai-Parshuram-Gym/"
+      technologies: ["React Native", "Firebase", "Chart.js", "Push Notifications"],
+      liveUrl: "#",
+      githubUrl: "#"
     }
   ];
 
