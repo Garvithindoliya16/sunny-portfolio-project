@@ -3,35 +3,23 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sparkles } from "lucide-react";
 import { useRef, useEffect } from "react";
 import ThreeBackgroundSkills from "./ThreeBackgroundSkills";
-
 const Skills = () => {
-  const frontendSkills = [
-    "React", "TypeScript", "JavaScript", "Next.js", "Vue.js", 
-    "HTML5", "CSS3", "Tailwind CSS", "SCSS", "Styled Components"
-  ];
-
-  const pythonSkills = [
-    "NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn"
-  ];
-
+  const frontendSkills = ["React", "TypeScript", "JavaScript", "Next.js", "Vue.js", "HTML5", "CSS3", "Tailwind CSS", "SCSS", "Styled Components"];
+  const pythonSkills = ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn"];
   const interactiveElementRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
-
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!interactiveElementRef.current || !sectionRef.current) return;
-      
       const section = sectionRef.current;
       const rect = section.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
       const y = (e.clientY - rect.top) / rect.height;
-      
       const element = interactiveElementRef.current;
       const rotateX = (y - 0.5) * 30;
       const rotateY = (x - 0.5) * 30;
       const translateX = (x - 0.5) * 20;
       const translateY = (y - 0.5) * 20;
-      
       element.style.transform = `
         rotateX(${-rotateX}deg) 
         rotateY(${rotateY}deg) 
@@ -40,16 +28,15 @@ const Skills = () => {
         translateZ(50px)
       `;
     };
-
     const section = sectionRef.current;
     if (section) {
       section.addEventListener('mousemove', handleMouseMove);
       return () => section.removeEventListener('mousemove', handleMouseMove);
     }
   }, []);
-
-  return (
-    <section ref={sectionRef} className="py-20 px-4 bg-muted/30 relative overflow-hidden" style={{ perspective: '1000px' }}>
+  return <section ref={sectionRef} className="py-20 px-4 bg-muted/30 relative overflow-hidden" style={{
+    perspective: '1000px'
+  }}>
       {/* 3D Background */}
       <ThreeBackgroundSkills />
       
@@ -85,18 +72,18 @@ const Skills = () => {
       
       {/* Large Interactive 3D Element */}
       <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden xl:block pointer-events-none">
-        <div 
-          ref={interactiveElementRef}
-          className="w-80 h-80 transition-transform duration-150 ease-out"
-          style={{ transformStyle: 'preserve-3d' }}
-        >
+        <div ref={interactiveElementRef} className="w-80 h-80 transition-transform duration-150 ease-out" style={{
+        transformStyle: 'preserve-3d'
+      }}>
           {/* Main geometric shape */}
           <div className="relative w-full h-full">
             {/* Central hexagon */}
-            <div className="absolute inset-0 border-4 border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-cyan-500/10 backdrop-blur-sm"
-                 style={{ clipPath: 'polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%)' }}>
-              <div className="absolute inset-4 border-2 border-cyan-500/40 bg-gradient-to-tr from-cyan-500/5 to-purple-500/5"
-                   style={{ clipPath: 'polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%)' }}></div>
+            <div className="absolute inset-0 border-4 border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-cyan-500/10 backdrop-blur-sm" style={{
+            clipPath: 'polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%)'
+          }}>
+              <div className="absolute inset-4 border-2 border-cyan-500/40 bg-gradient-to-tr from-cyan-500/5 to-purple-500/5" style={{
+              clipPath: 'polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%)'
+            }}></div>
             </div>
             
             {/* Floating tech symbols */}
@@ -150,16 +137,11 @@ const Skills = () => {
             </CardHeader>
             <CardContent className="relative z-10">
               <div className="flex flex-wrap gap-2 justify-center">
-                {frontendSkills.map((skill, index) => (
-                  <Badge 
-                    key={skill} 
-                    variant="secondary" 
-                    className="px-3 py-1 text-sm bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border-purple-500/20 hover:from-purple-500/20 hover:to-cyan-500/20 hover:border-purple-500/40 transition-all duration-300 cursor-default hover-scale animate-bounce-in"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
+                {frontendSkills.map((skill, index) => <Badge key={skill} variant="secondary" className="px-3 py-1 text-sm bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border-purple-500/20 hover:from-purple-500/20 hover:to-cyan-500/20 hover:border-purple-500/40 transition-all duration-300 cursor-default hover-scale animate-bounce-in" style={{
+                animationDelay: `${index * 100}ms`
+              }}>
                     {skill}
-                  </Badge>
-                ))}
+                  </Badge>)}
               </div>
               
               {/* Floating sparkles */}
@@ -180,16 +162,11 @@ const Skills = () => {
             </CardHeader>
             <CardContent className="relative z-10">
               <div className="flex flex-wrap gap-2 justify-center">
-                {pythonSkills.map((skill, index) => (
-                  <Badge 
-                    key={skill} 
-                    variant="secondary" 
-                    className="px-3 py-1 text-sm bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border-cyan-500/20 hover:from-cyan-500/20 hover:to-purple-500/20 hover:border-cyan-500/40 transition-all duration-300 cursor-default hover-scale animate-bounce-in"
-                    style={{ animationDelay: `${index * 100 + 500}ms` }}
-                  >
+                {pythonSkills.map((skill, index) => <Badge key={skill} variant="secondary" className="px-3 py-1 text-sm bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border-cyan-500/20 hover:from-cyan-500/20 hover:to-purple-500/20 hover:border-cyan-500/40 transition-all duration-300 cursor-default hover-scale animate-bounce-in" style={{
+                animationDelay: `${index * 100 + 500}ms`
+              }}>
                     {skill}
-                  </Badge>
-                ))}
+                  </Badge>)}
               </div>
               
               {/* Floating sparkles */}
@@ -207,18 +184,7 @@ const Skills = () => {
           <h3 className="text-2xl font-bold bg-gradient-to-r from-foreground to-purple-600 bg-clip-text text-transparent mb-8">My Journey</h3>
           
           {/* UI/UX Design Progress Bar */}
-          <div className="max-w-md mx-auto mb-6">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-medium text-foreground">UI/UX Design</span>
-              <span className="text-sm text-muted-foreground">78%</span>
-            </div>
-            <div className="w-full bg-muted rounded-full h-2.5">
-              <div 
-                className="bg-gradient-to-r from-purple-600 to-pink-600 h-2.5 rounded-full transition-all duration-1000 ease-out animate-fade-in"
-                style={{ width: '78%' }}
-              ></div>
-            </div>
-          </div>
+          
           
           {/* Python Progress Bar */}
           <div className="max-w-md mx-auto mb-8">
@@ -227,10 +193,9 @@ const Skills = () => {
               <span className="text-sm text-muted-foreground">85%</span>
             </div>
             <div className="w-full bg-muted rounded-full h-2.5">
-              <div 
-                className="bg-gradient-to-r from-green-600 to-blue-600 h-2.5 rounded-full transition-all duration-1000 ease-out animate-fade-in delay-300"
-                style={{ width: '85%' }}
-              ></div>
+              <div className="bg-gradient-to-r from-green-600 to-blue-600 h-2.5 rounded-full transition-all duration-1000 ease-out animate-fade-in delay-300" style={{
+              width: '85%'
+            }}></div>
             </div>
           </div>
           
@@ -240,8 +205,6 @@ const Skills = () => {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Skills;
