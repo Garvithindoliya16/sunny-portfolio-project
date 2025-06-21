@@ -57,7 +57,7 @@ const MachineLearningProjects = () => {
       </div>
       
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-16 animate-fade-in animate-slide-in">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Brain className="h-6 w-6 text-green-400 animate-bounce" />
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-green-600 to-blue-600 bg-clip-text text-transparent">
@@ -79,10 +79,11 @@ const MachineLearningProjects = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {project.featured && (
-                <div className="absolute top-4 right-4 z-20">
-                  <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
-                    <Brain className="h-4 w-4" />
-                    Featured ML Project
+                <div className="absolute top-2 right-2 md:top-4 md:right-4 z-20">
+                  <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-medium flex items-center gap-1">
+                    <Brain className="h-3 w-3 md:h-4 md:w-4" />
+                    <span className="hidden sm:inline">Featured ML Project</span>
+                    <span className="sm:hidden">Featured</span>
                   </div>
                 </div>
               )}

@@ -26,7 +26,7 @@ const Hero = () => {
       <div className="absolute top-6 right-6 flex items-center gap-3 z-20">
         <Button 
           size="lg" 
-          className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-scale"
+          className="px-3 py-2 md:px-6 md:py-3 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-scale text-sm md:text-base"
           onClick={() => {
             // Create a temporary link to download resume
             const link = document.createElement('a');
@@ -35,8 +35,9 @@ const Hero = () => {
             link.click();
           }}
         >
-          <Download className="mr-2 h-5 w-5" />
-          Get Resume
+          <Download className="mr-1 md:mr-2 h-4 w-4 md:h-5 md:w-5" />
+          <span className="hidden sm:inline">Get Resume</span>
+          <span className="sm:hidden">Resume</span>
         </Button>
         <ThemeToggle />
       </div>
@@ -55,7 +56,7 @@ const Hero = () => {
         <Sparkles className="h-4 w-4 text-emerald-400 opacity-60" />
       </div>
       
-      <div className="max-w-4xl mx-auto text-center animate-fade-in relative z-10">
+      <div className="max-w-4xl mx-auto text-center animate-fade-in animate-slide-in relative z-10">
         <div className="mt-12 mb-8 relative">
           {/* Glowing effect behind image */}
           <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-full blur-lg opacity-30 animate-pulse scale-110" />
