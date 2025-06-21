@@ -35,7 +35,7 @@ const Contact = () => {
       setIsLoading(false);
     }
   };
-  return <section className="py-20 px-4 bg-gradient-to-br from-muted/30 to-background relative overflow-hidden">
+  return <section id="contact" className="py-20 px-4 bg-gradient-to-br from-muted/30 to-background relative overflow-hidden">
       {/* 3D Background */}
       <ThreeBackgroundContact />
       {/* Animated background elements */}

@@ -24,29 +24,23 @@ const Chatbot = () => {
   ]);
   const [inputMessage, setInputMessage] = useState("");
 
-  const predefinedResponses: { [key: string]: string } = {
-    "hello": "Hello! I'm here to help you learn more about Garvit Hindoliya. What would you like to know?",
-    "hi": "Hi there! I'm Garvit's AI assistant. Ask me anything about his work and skills!",
-    "skills": "Garvit is skilled in Frontend Development (React, TypeScript, JavaScript, HTML, CSS, Tailwind CSS) and Python & Data Science (NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn). He's passionate about creating beautiful web experiences!",
-    "projects": "Garvit has worked on various projects including E-Commerce Dashboards, Task Management Apps, Weather Apps, and Machine Learning projects like car price prediction using Python libraries. Check out the projects section for more details!",
-    "experience": "Garvit is a passionate Frontend Developer with expertise in modern web technologies and data science. He loves creating responsive, user-friendly applications and working with machine learning algorithms.",
-    "contact": "You can reach Garvit at garvithindoliyaprojects@gmail.com or connect with him on LinkedIn at https://www.linkedin.com/in/garvithindoliya/",
-    "github": "Check out Garvit's work on GitHub: https://github.com/Garvithindoliya16",
-    "resume": "You can download Garvit's resume using the 'Get Resume' button in the top right corner of the page!",
-    "machine learning": "Garvit has experience with machine learning using Python libraries like NumPy, Pandas, Matplotlib, Seaborn, and Scikit-learn. He's worked on projects like car price prediction with high accuracy!",
-    "python": "Garvit is proficient in Python for data science and machine learning, using libraries like NumPy for numerical computing, Pandas for data manipulation, Matplotlib and Seaborn for visualization, and Scikit-learn for machine learning algorithms."
-  };
+  const funnyResponses = [
+    "🤖 Beep boop! Garvit probably coded me while drinking his 47th cup of coffee today ☕",
+    "🚀 Fun fact: Garvit once debugged code in his sleep and woke up with the solution! 😴",
+    "🎨 Garvit's coding skills are so good, even his bugs look beautiful! ✨",
+    "🔮 Legend says Garvit can make websites so responsive, they respond before you even click! 📱",
+    "🎭 Garvit's GitHub has more commits than a rom-com has plot twists! 💕",
+    "🌟 Warning: Garvit's portfolio might cause extreme inspiration and sudden urge to hire him! 💼",
+    "🎪 Garvit codes faster than a cheetah on Red Bull! Want proof? Check his projects! 🐆",
+    "🎨 Roses are red, violets are blue, Garvit writes code, that's beautiful too! 🌹",
+    "🚀 Garvit's skills are like pizza - even when they're bad, they're still pretty good! 🍕",
+    "🎯 Contact Garvit at garvithindoliyaprojects@gmail.com - he replies faster than instant noodles cook! 📧"
+  ];
 
   const getResponse = (input: string): string => {
-    const lowerInput = input.toLowerCase();
-    
-    for (const keyword in predefinedResponses) {
-      if (lowerInput.includes(keyword)) {
-        return predefinedResponses[keyword];
-      }
-    }
-    
-    return "That's an interesting question! While I can tell you about Garvit's skills, projects, and experience, you might want to reach out to him directly at garvithindoliyaprojects@gmail.com for more specific inquiries.";
+    // Return a random funny response
+    const randomIndex = Math.floor(Math.random() * funnyResponses.length);
+    return funnyResponses[randomIndex];
   };
 
   const handleSendMessage = () => {
@@ -119,7 +113,7 @@ const Chatbot = () => {
                       }`}
                     >
                       <div
-                        className={`flex gap-2 max-w-[80%] ${
+                        className={`flex gap-2 max-w-[70%] ${
                           message.isBot ? "flex-row" : "flex-row-reverse"
                         }`}
                       >
@@ -137,7 +131,7 @@ const Chatbot = () => {
                           )}
                         </div>
                         <div
-                          className={`px-3 py-2 rounded-lg text-sm ${
+                          className={`px-3 py-2 rounded-lg text-sm break-words overflow-wrap ${
                             message.isBot
                               ? "bg-muted text-muted-foreground"
                               : "bg-gradient-to-r from-purple-600 to-blue-600 text-white"

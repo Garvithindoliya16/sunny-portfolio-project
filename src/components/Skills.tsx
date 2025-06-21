@@ -202,7 +202,22 @@ const Skills = () => {
         </div>
 
         <div className="mt-16 text-center animate-fade-in delay-400">
-          <h3 className="text-2xl font-bold bg-gradient-to-r from-foreground to-purple-600 bg-clip-text text-transparent mb-8">Always Learning</h3>
+          <h3 className="text-2xl font-bold bg-gradient-to-r from-foreground to-purple-600 bg-clip-text text-transparent mb-8">My Journey</h3>
+          
+          {/* Python Progress Bar */}
+          <div className="max-w-md mx-auto mb-8">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm font-medium text-foreground">Python</span>
+              <span className="text-sm text-muted-foreground">85%</span>
+            </div>
+            <div className="w-full bg-muted rounded-full h-2.5">
+              <div 
+                className="bg-gradient-to-r from-green-600 to-blue-600 h-2.5 rounded-full transition-all duration-1000 ease-out animate-fade-in"
+                style={{ width: '85%' }}
+              ></div>
+            </div>
+          </div>
+          
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             The web development landscape is constantly evolving, and I love keeping up with the latest trends 
             and technologies. Currently exploring Web3, AI integration, and advanced React patterns.

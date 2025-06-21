@@ -30,8 +30,8 @@ const Hero = () => {
           onClick={() => {
             // Create a temporary link to download resume
             const link = document.createElement('a');
-            link.href = '#'; // You can replace this with actual resume file path
-            link.download = 'Garvit_Hindoliya_Resume.pdf';
+            link.href = '/lovable-uploads/8959c074-c8a5-4daa-8ca6-a33fb3ab3aa8.png';
+            link.download = 'Garvit_Hindoliya_Resume.png';
             link.click();
           }}
         >
@@ -94,11 +94,23 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in delay-500">
-          <Button size="lg" className="px-8 py-3 text-lg hover-scale bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+          <Button 
+            size="lg" 
+            className="px-8 py-3 text-lg hover-scale bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+            onClick={() => {
+              const contactSection = document.querySelector('#contact');
+              contactSection?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             <Mail className="mr-2 h-5 w-5" />
             Get In Touch
           </Button>
-          <Button variant="outline" size="lg" className="px-8 py-3 text-lg hover-scale border-2 border-purple-600/50 hover:border-purple-600 hover:bg-purple-600/10 transition-all duration-300">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="px-8 py-3 text-lg hover-scale border-2 border-purple-600/50 hover:border-purple-600 hover:bg-purple-600/10 transition-all duration-300"
+            onClick={() => window.open('https://github.com/Garvithindoliya16', '_blank')}
+          >
             View My Work
           </Button>
         </div>
