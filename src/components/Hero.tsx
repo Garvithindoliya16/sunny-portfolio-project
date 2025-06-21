@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Sparkles, Download } from "lucide-react";
 import ThreeBackground from "./ThreeBackground";
+import { ThemeToggle } from "./ThemeToggle";
 
 const Hero = () => {
   return (
@@ -18,9 +19,27 @@ const Hero = () => {
       
       {/* Corner decorative elements */}
       <div className="absolute top-8 left-8 w-16 h-16 border-2 border-purple-500/20 rounded-lg rotate-45 animate-spin-slow"></div>
-      <div className="absolute top-8 right-8 w-20 h-20 border-2 border-cyan-500/20 rounded-full animate-pulse"></div>
       <div className="absolute bottom-8 left-8 w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full animate-bounce delay-200"></div>
       <div className="absolute bottom-8 right-8 w-14 h-14 border-2 border-emerald-500/30 rounded-lg rotate-12 animate-pulse delay-700"></div>
+      
+      {/* Top Right Controls */}
+      <div className="absolute top-6 right-6 flex items-center gap-3 z-20">
+        <Button 
+          size="lg" 
+          className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-scale"
+          onClick={() => {
+            // Create a temporary link to download resume
+            const link = document.createElement('a');
+            link.href = '#'; // You can replace this with actual resume file path
+            link.download = 'Garvit_Hindoliya_Resume.pdf';
+            link.click();
+          }}
+        >
+          <Download className="mr-2 h-5 w-5" />
+          Get Resume
+        </Button>
+        <ThemeToggle />
+      </div>
       
       {/* Corner sparkle effects */}
       <div className="absolute top-16 left-20 animate-ping">
