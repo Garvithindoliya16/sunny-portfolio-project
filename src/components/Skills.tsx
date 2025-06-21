@@ -142,8 +142,9 @@ const Skills = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 animate-fade-in delay-200">
-          <Card className="hover-scale transition-all duration-500 hover:shadow-2xl border-0 bg-gradient-to-br from-background/80 to-muted/50 backdrop-blur-sm relative overflow-hidden">
+          <Card className="hover-scale transition-all duration-500 hover:shadow-2xl border-0 bg-gradient-to-br from-background/80 to-muted/50 backdrop-blur-sm relative overflow-hidden animate-slide-in">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 animate-shimmer opacity-0 hover:opacity-30 transition-opacity duration-500" />
             <CardHeader className="relative z-10">
               <CardTitle className="text-center bg-gradient-to-r from-foreground to-purple-600 bg-clip-text text-transparent">Frontend Development</CardTitle>
             </CardHeader>
@@ -153,8 +154,8 @@ const Skills = () => {
                   <Badge 
                     key={skill} 
                     variant="secondary" 
-                    className="px-3 py-1 text-sm bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border-purple-500/20 hover:from-purple-500/20 hover:to-cyan-500/20 hover:border-purple-500/40 transition-all duration-300 cursor-default hover-scale"
-                    style={{ animationDelay: `${index * 50}ms` }}
+                    className="px-3 py-1 text-sm bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border-purple-500/20 hover:from-purple-500/20 hover:to-cyan-500/20 hover:border-purple-500/40 transition-all duration-300 cursor-default hover-scale animate-bounce-in"
+                    style={{ animationDelay: `${index * 100}ms` }}
                   >
                     {skill}
                   </Badge>
@@ -171,8 +172,9 @@ const Skills = () => {
             </CardContent>
           </Card>
 
-          <Card className="hover-scale transition-all duration-500 hover:shadow-2xl border-0 bg-gradient-to-br from-background/80 to-muted/50 backdrop-blur-sm relative overflow-hidden">
+          <Card className="hover-scale transition-all duration-500 hover:shadow-2xl border-0 bg-gradient-to-br from-background/80 to-muted/50 backdrop-blur-sm relative overflow-hidden animate-slide-in">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 animate-shimmer opacity-0 hover:opacity-30 transition-opacity duration-500" />
             <CardHeader className="relative z-10">
               <CardTitle className="text-center bg-gradient-to-r from-foreground to-cyan-600 bg-clip-text text-transparent">Python & Data Science</CardTitle>
             </CardHeader>
@@ -182,8 +184,8 @@ const Skills = () => {
                   <Badge 
                     key={skill} 
                     variant="secondary" 
-                    className="px-3 py-1 text-sm bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border-cyan-500/20 hover:from-cyan-500/20 hover:to-purple-500/20 hover:border-cyan-500/40 transition-all duration-300 cursor-default hover-scale"
-                    style={{ animationDelay: `${index * 50}ms` }}
+                    className="px-3 py-1 text-sm bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border-cyan-500/20 hover:from-cyan-500/20 hover:to-purple-500/20 hover:border-cyan-500/40 transition-all duration-300 cursor-default hover-scale animate-bounce-in"
+                    style={{ animationDelay: `${index * 100 + 500}ms` }}
                   >
                     {skill}
                   </Badge>
@@ -204,6 +206,20 @@ const Skills = () => {
         <div className="mt-16 text-center animate-fade-in delay-400">
           <h3 className="text-2xl font-bold bg-gradient-to-r from-foreground to-purple-600 bg-clip-text text-transparent mb-8">My Journey</h3>
           
+          {/* UI/UX Design Progress Bar */}
+          <div className="max-w-md mx-auto mb-6">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm font-medium text-foreground">UI/UX Design</span>
+              <span className="text-sm text-muted-foreground">78%</span>
+            </div>
+            <div className="w-full bg-muted rounded-full h-2.5">
+              <div 
+                className="bg-gradient-to-r from-purple-600 to-pink-600 h-2.5 rounded-full transition-all duration-1000 ease-out animate-fade-in"
+                style={{ width: '78%' }}
+              ></div>
+            </div>
+          </div>
+          
           {/* Python Progress Bar */}
           <div className="max-w-md mx-auto mb-8">
             <div className="flex justify-between items-center mb-2">
@@ -212,7 +228,7 @@ const Skills = () => {
             </div>
             <div className="w-full bg-muted rounded-full h-2.5">
               <div 
-                className="bg-gradient-to-r from-green-600 to-blue-600 h-2.5 rounded-full transition-all duration-1000 ease-out animate-fade-in"
+                className="bg-gradient-to-r from-green-600 to-blue-600 h-2.5 rounded-full transition-all duration-1000 ease-out animate-fade-in delay-300"
                 style={{ width: '85%' }}
               ></div>
             </div>

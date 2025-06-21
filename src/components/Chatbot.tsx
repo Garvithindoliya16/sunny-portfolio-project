@@ -103,12 +103,12 @@ const Chatbot = () => {
             </CardHeader>
             
             <CardContent className="flex-1 flex flex-col gap-3 p-4 pt-0">
-              <ScrollArea className="flex-1 pr-3">
+              <ScrollArea className="flex-1 pr-3 max-h-64">
                 <div className="space-y-3">
                   {messages.map((message) => (
                     <div
                       key={message.id}
-                      className={`flex gap-2 ${
+                      className={`flex gap-2 animate-fade-in ${
                         message.isBot ? "justify-start" : "justify-end"
                       }`}
                     >
@@ -131,11 +131,12 @@ const Chatbot = () => {
                           )}
                         </div>
                         <div
-                          className={`px-3 py-2 rounded-lg text-sm break-words overflow-wrap ${
+                          className={`px-3 py-2 rounded-lg text-sm break-words word-wrap max-w-full ${
                             message.isBot
                               ? "bg-muted text-muted-foreground"
                               : "bg-gradient-to-r from-purple-600 to-blue-600 text-white"
                           }`}
+                          style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}
                         >
                           {message.text}
                         </div>

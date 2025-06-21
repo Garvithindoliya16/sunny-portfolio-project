@@ -82,7 +82,7 @@ const Hero = () => {
           <div className="flex items-center justify-center gap-2 text-xl md:text-2xl text-muted-foreground animate-fade-in delay-200">
             <Sparkles className="h-5 w-5 text-purple-400 animate-pulse" />
             <span className="bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent font-semibold">
-              Frontend Developer
+              Frontend Developer & Python Programmer
             </span>
             <Sparkles className="h-5 w-5 text-cyan-400 animate-pulse" />
           </div>
