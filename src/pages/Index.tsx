@@ -1,10 +1,11 @@
+
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
-import ThreeScene from "@/components/ThreeScene";
 import MachineLearningProjects from "@/components/MachineLearningProjects";
 import Contact from "@/components/Contact";
+import CrazySection from "@/components/CrazySection";
 
 const Index = () => {
   return (
@@ -13,7 +14,7 @@ const Index = () => {
       <About />
       <Skills />
       <Projects />
-      <ThreeScene />
+      <CrazySection />
       <MachineLearningProjects />
       <Contact />
     </div>
