@@ -1,8 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Zap, Rocket, Sparkles, Star, Code, Globe, Cpu, Database, Palette, Trophy, Target, Lightning } from "lucide-react";
+import { Zap, Rocket, Sparkles, Star, Code, Globe, Cpu, Database, Palette, Trophy, Target, Bolt } from "lucide-react";
 
 const CrazySection = () => {
   const achievements = [
@@ -41,7 +40,7 @@ const CrazySection = () => {
       </div>
       <div className="absolute bottom-20 left-1/4 animate-float delay-700">
         <div className="w-12 h-12 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full flex items-center justify-center">
-          <Lightning className="h-6 w-6 text-green-500 animate-bounce" />
+          <Bolt className="h-6 w-6 text-green-500 animate-bounce" />
         </div>
       </div>
       <div className="absolute bottom-20 right-1/4 animate-float delay-1000">
