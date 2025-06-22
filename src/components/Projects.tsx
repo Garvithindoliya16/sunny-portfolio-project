@@ -11,8 +11,8 @@ const Projects = () => {
       description: "A comprehensive admin dashboard for managing online stores with real-time analytics, inventory management, and order processing.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
       technologies: ["React", "TypeScript", "Tailwind CSS", "Chart.js", "REST API"],
-      liveUrl: "#",
-      githubUrl: "#",
+      liveUrl: "https://github.com/Garvithindoliya16/GreatCart-Django",
+      githubUrl: "https://github.com/Garvithindoliya16/GreatCart-Django",
       featured: true
     },
     {
@@ -20,7 +20,7 @@ const Projects = () => {
       description: "A collaborative project management tool with drag-and-drop functionality, team collaboration features, and progress tracking.",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
       technologies: ["React", "Node.js", "MongoDB", "Socket.io", "Material-UI"],
-      liveUrl: "#",
+      liveUrl: "https://garvithindoliya16.github.io/Finance/",
       githubUrl: "#"
     },
     {
@@ -28,15 +28,15 @@ const Projects = () => {
       description: "A beautiful weather application with location-based forecasts, interactive maps, and detailed weather data visualization.",
       image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
       technologies: ["Vue.js", "JavaScript", "CSS3", "Weather API", "PWA"],
-      liveUrl: "#",
-      githubUrl: "#"
+      liveUrl: "https://github.com/Garvithindoliya16/NGO-WEB",
+      githubUrl: "https://github.com/Garvithindoliya16/NGO-WEB"
     },
     {
       title: "Portfolio Website",
       description: "A responsive portfolio website showcasing creative work with smooth animations, optimized performance, and modern design.",
       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
       technologies: ["Next.js", "SCSS", "Framer Motion", "Vercel", "CMS"],
-      liveUrl: "#",
+      liveUrl: "https://garvithindoliya16.github.io/Myportfolio/",
       githubUrl: "#",
       featured: true
     },
@@ -45,7 +45,7 @@ const Projects = () => {
       description: "Analytics dashboard for social media management with data visualization, scheduling tools, and performance metrics.",
       image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=500&h=300&fit=crop",
       technologies: ["React", "D3.js", "Express", "PostgreSQL", "JWT"],
-      liveUrl: "#",
+      liveUrl: "https://garvithindoliya16.github.io/Usabilityhub-clone/",
       githubUrl: "#"
     },
     {
@@ -53,7 +53,7 @@ const Projects = () => {
       description: "Mobile-first fitness application with workout tracking, progress visualization, and social features for motivation.",
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop",
       technologies: ["React Native", "Firebase", "Chart.js", "Push Notifications"],
-      liveUrl: "#",
+      liveUrl: "https://garvithindoliya16.github.io/Jai-Parshuram-Gym/",
       githubUrl: "#"
     }
   ];
@@ -179,11 +179,20 @@ const Projects = () => {
                 </div>
                 
                 <div className="flex gap-2 pt-4">
-                  <Button size="sm" className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 border-0 hover-scale">
+                  <Button 
+                    size="sm" 
+                    className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 border-0 hover-scale"
+                    onClick={() => window.open(project.liveUrl, '_blank')}
+                  >
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Live Demo
                   </Button>
-                  <Button size="sm" variant="outline" className="flex-1 border-purple-500/30 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all duration-300 hover-scale">
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    className="flex-1 border-purple-500/30 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all duration-300 hover-scale"
+                    onClick={() => window.open(project.githubUrl, '_blank')}
+                  >
                     <Github className="h-4 w-4 mr-2" />
                     Code
                   </Button>
