@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail, Sparkles, Download } from "lucide-react";
 import ThreeBackground from "./ThreeBackground";
@@ -26,7 +27,7 @@ const Hero = () => {
       <div className="absolute top-6 right-6 flex items-center gap-3 z-20">
         <Button 
           size="lg" 
-          className="px-3 py-2 md:px-6 md:py-3 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-scale text-sm md:text-base"
+          className="px-3 py-2 md:px-6 md:py-3 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-scale text-sm md:text-base sm:absolute sm:top-0 sm:left-0 sm:-translate-x-full sm:-translate-y-12"
           onClick={() => {
             // Create a temporary link to download resume
             const link = document.createElement('a');

@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -173,12 +174,12 @@ const MachineLearningProjects = () => {
                 </div>
                 
                 {/* Project Images */}
-                <div className="space-y-4">
+                <div className="space-y-4 relative">
                   <h4 className="font-semibold text-foreground flex items-center gap-2">
                     <BarChart3 className="h-4 w-4 text-green-500" />
                     Project Showcase
                   </h4>
-                  <div className="grid gap-4">
+                  <div className="grid gap-4 relative">
                     {project.images.map((image, imgIndex) => (
                       <div key={imgIndex} className="relative overflow-hidden rounded-lg group/img">
                         <img 
@@ -189,6 +190,25 @@ const MachineLearningProjects = () => {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 rounded-lg" />
                       </div>
                     ))}
+                    
+                    {/* Mobile 3D Elements */}
+                    <div className="absolute -bottom-8 -left-8 lg:hidden animate-float">
+                      <div className="w-16 h-16 bg-gradient-to-br from-green-400/30 to-blue-400/30 rounded-xl transform rotate-12 backdrop-blur-sm border border-green-500/20 flex items-center justify-center">
+                        <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-md shadow-lg"></div>
+                      </div>
+                    </div>
+                    
+                    <div className="absolute -top-4 -right-4 lg:hidden animate-float delay-300">
+                      <div className="w-12 h-12 bg-gradient-to-br from-purple-400/30 to-pink-400/30 rounded-lg transform -rotate-12 backdrop-blur-sm border border-purple-500/20 flex items-center justify-center">
+                        <Database className="h-5 w-5 text-purple-500" />
+                      </div>
+                    </div>
+                    
+                    <div className="absolute bottom-1/2 -right-6 lg:hidden animate-float delay-500">
+                      <div className="w-10 h-10 bg-gradient-to-br from-cyan-400/30 to-emerald-400/30 rounded-full backdrop-blur-sm border border-cyan-500/20 flex items-center justify-center">
+                        <Brain className="h-4 w-4 text-cyan-500" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

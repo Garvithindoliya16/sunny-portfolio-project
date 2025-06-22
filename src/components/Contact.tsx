@@ -7,15 +7,16 @@ import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
 import ThreeBackgroundContact from "./ThreeBackgroundContact";
+
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formRef.current) return;
+
     setIsLoading(true);
     try {
       await emailjs.sendForm('service_42knvge', 'template_ibo9tw8', formRef.current, 'CmSTojk7OI7xcvX2u');
@@ -35,9 +36,12 @@ const Contact = () => {
       setIsLoading(false);
     }
   };
-  return <section id="contact" className="py-20 px-4 bg-gradient-to-br from-muted/30 to-background relative overflow-hidden">
+
+  return (
+    <section id="contact" className="py-20 px-4 bg-gradient-to-br from-muted/30 to-background relative overflow-hidden">
       {/* 3D Background */}
       <ThreeBackgroundContact />
+      
       {/* Animated background elements */}
       <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-10 right-10 w-48 h-48 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
@@ -88,7 +92,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-medium text-foreground group-hover:text-emerald-600 transition-colors">Phone</p>
-                  <p className="text-muted-foreground">+91 (555) 123-4567</p>
+                  <p className="text-muted-foreground">+91 7987345022</p>
                 </div>
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-auto">
                   <Sparkles className="h-4 w-4 text-emerald-400" />
@@ -145,13 +149,13 @@ const Contact = () => {
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       First Name
                     </label>
-                    <Input name="from_name" required placeholder="John" className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-purple-500/50 focus:ring-purple-500/20 transition-all duration-300" />
+                    <Input name="from_name" required className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-purple-500/50 focus:ring-purple-500/20 transition-all duration-300" />
                   </div>
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Last Name
                     </label>
-                    <Input name="last_name" placeholder="Doe" className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-purple-500/50 focus:ring-purple-500/20 transition-all duration-300" />
+                    <Input name="last_name" className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-purple-500/50 focus:ring-purple-500/20 transition-all duration-300" />
                   </div>
                 </div>
                 
@@ -159,16 +163,14 @@ const Contact = () => {
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Email
                   </label>
-                  <Input name="from_email" type="email" required placeholder="john@example.com" className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-blue-500/50 focus:ring-blue-500/20 transition-all duration-300" />
+                  <Input name="from_email" type="email" required className="border-muted/50 bg-background/50 backdrop-blur-sm focus:border-blue-500/50 focus:ring-blue-500/20 transition-all duration-300" />
                 </div>
-                
-                
                 
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Message
                   </label>
-                  <Textarea name="message" required placeholder="Tell me about your project..." className="min-h-[120px] border-muted/50 bg-background/50 backdrop-blur-sm focus:border-emerald-500/50 focus:ring-emerald-500/20 transition-all duration-300 resize-none" />
+                  <Textarea name="message" required className="min-h-[120px] border-muted/50 bg-background/50 backdrop-blur-sm focus:border-emerald-500/50 focus:ring-emerald-500/20 transition-all duration-300 resize-none" />
                 </div>
                 
                 <Button type="submit" disabled={isLoading} className="w-full hover-scale bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
@@ -180,6 +182,8 @@ const Contact = () => {
           </Card>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Contact;

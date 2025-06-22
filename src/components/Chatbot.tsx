@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -23,6 +24,7 @@ const Chatbot = () => {
     }
   ]);
   const [inputMessage, setInputMessage] = useState("");
+  const [usedResponses, setUsedResponses] = useState<Set<number>>(new Set());
 
   const funnyResponses = [
     "🤖 Beep boop! Garvit probably coded me while drinking his 47th cup of coffee today ☕",
@@ -34,13 +36,40 @@ const Chatbot = () => {
     "🎪 Garvit codes faster than a cheetah on Red Bull! Want proof? Check his projects! 🐆",
     "🎨 Roses are red, violets are blue, Garvit writes code, that's beautiful too! 🌹",
     "🚀 Garvit's skills are like pizza - even when they're bad, they're still pretty good! 🍕",
-    "🎯 Contact Garvit at garvithindoliyaprojects@gmail.com - he replies faster than instant noodles cook! 📧"
+    "🎯 Contact Garvit at garvithindoliyaprojects@gmail.com - he replies faster than instant noodles cook! 📧",
+    "💻 Garvit speaks Python so fluently, even snakes are jealous! 🐍",
+    "🎮 React components fear Garvit - he makes them render without breaking a sweat! ⚛️",
+    "🌈 Garvit's code is so clean, Marie Kondo would approve! ✨",
+    "🏆 Fun fact: Garvit has completed 50+ projects and his keyboard is still talking to him! ⌨️",
+    "🎪 Garvit's machine learning models are so accurate, they predict what you want for lunch! 🤖",
+    "🎭 Plot twist: Garvit's real superpower is making CSS actually make sense! 🦸‍♂️",
+    "🌟 Garvit's portfolio has more stars than a Hollywood red carpet! ⭐",
+    "🎨 His UI designs are so good, Figma sends him thank you cards! 🎁",
+    "🚀 Garvit deploys code faster than you can say 'Hello World!' 🌍",
+    "💡 He's the type of developer who dreams in code and wakes up with new features! 💭"
   ];
 
   const getResponse = (input: string): string => {
-    // Return a random funny response
-    const randomIndex = Math.floor(Math.random() * funnyResponses.length);
-    return funnyResponses[randomIndex];
+    // Get unused responses
+    const availableResponses = funnyResponses.filter((_, index) => !usedResponses.has(index));
+    
+    // If all responses have been used, reset the used responses
+    if (availableResponses.length === 0) {
+      setUsedResponses(new Set());
+      const randomIndex = Math.floor(Math.random() * funnyResponses.length);
+      setUsedResponses(new Set([randomIndex]));
+      return funnyResponses[randomIndex];
+    }
+    
+    // Get a random unused response
+    const randomIndex = Math.floor(Math.random() * availableResponses.length);
+    const selectedResponse = availableResponses[randomIndex];
+    const originalIndex = funnyResponses.indexOf(selectedResponse);
+    
+    // Mark this response as used
+    setUsedResponses(prev => new Set([...prev, originalIndex]));
+    
+    return selectedResponse;
   };
 
   const handleSendMessage = () => {
@@ -151,7 +180,6 @@ const Chatbot = () => {
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Ask about Garvit's skills, projects..."
                   className="flex-1 border-purple-500/30 focus:border-purple-500/50"
                 />
                 <Button
