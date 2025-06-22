@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail, Sparkles, Download } from "lucide-react";
 import ThreeBackground from "./ThreeBackground";
@@ -23,11 +22,11 @@ const Hero = () => {
       <div className="absolute bottom-8 left-8 w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full animate-bounce delay-200"></div>
       <div className="absolute bottom-8 right-8 w-14 h-14 border-2 border-emerald-500/30 rounded-lg rotate-12 animate-pulse delay-700"></div>
       
-      {/* Top Right Controls */}
-      <div className="absolute top-6 right-6 flex items-center gap-3 z-20">
+      {/* Top Right Controls - Fixed positioning */}
+      <div className="fixed top-4 right-4 flex items-center gap-3 z-50 sm:absolute sm:top-6 sm:right-6">
         <Button 
-          size="lg" 
-          className="px-3 py-2 md:px-6 md:py-3 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-scale text-sm md:text-base sm:absolute sm:top-0 sm:left-0 sm:-translate-x-full sm:-translate-y-12"
+          size="sm" 
+          className="px-3 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-scale text-xs sm:text-sm md:text-base"
           onClick={() => {
             // Create a temporary link to download resume
             const link = document.createElement('a');
@@ -36,9 +35,10 @@ const Hero = () => {
             link.click();
           }}
         >
-          <Download className="mr-1 md:mr-2 h-4 w-4 md:h-5 md:w-5" />
-          <span className="hidden sm:inline">Get Resume</span>
-          <span className="sm:hidden">Resume</span>
+          <Download className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
+          <span className="hidden xs:inline sm:hidden md:inline">Get Resume</span>
+          <span className="xs:hidden sm:inline md:hidden">Resume</span>
+          <span className="inline xs:hidden">CV</span>
         </Button>
         <ThemeToggle />
       </div>
@@ -57,7 +57,7 @@ const Hero = () => {
         <Sparkles className="h-4 w-4 text-emerald-400 opacity-60" />
       </div>
       
-      <div className="max-w-4xl mx-auto text-center animate-fade-in animate-slide-in relative z-10">
+      <div className="max-w-4xl mx-auto text-center animate-fade-in animate-slide-in relative z-10 pt-16 sm:pt-0">
         <div className="mt-12 mb-8 relative">
           {/* Glowing effect behind image */}
           <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-full blur-lg opacity-30 animate-pulse scale-110" />
