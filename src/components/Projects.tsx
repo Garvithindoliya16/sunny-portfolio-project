@@ -10,7 +10,7 @@ const Projects = () => {
       title: "E-Commerce Dashboard",
       description: "A comprehensive admin dashboard for managing online stores with real-time analytics, inventory management, and order processing.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Chart.js", "REST API"],
+      technologies: ["Python","Django","Sql lite"],
       liveUrl: "https://github.com/Garvithindoliya16/GreatCart-Django",
       githubUrl: "https://github.com/Garvithindoliya16",
       featured: true
@@ -19,7 +19,7 @@ const Projects = () => {
       title: "Finance Service App",
       description: "A collaborative project management tool with drag-and-drop functionality, team collaboration features, and progress tracking.",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
-      technologies: ["React", "Node.js", "MongoDB", "Socket.io", "Material-UI"],
+      technologies: ["Html","Css","JS","Gsap"],
       liveUrl: "https://garvithindoliya16.github.io/Finance/",
       githubUrl: "https://github.com/Garvithindoliya16"
     },
@@ -27,7 +27,7 @@ const Projects = () => {
       title: "NGO Web App",
       description: "A beautiful weather application with location-based forecasts, interactive maps, and detailed weather data visualization.",
       image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
-      technologies: ["Vue.js", "JavaScript", "CSS3", "Weather API", "PWA"],
+      technologies: ["Html","Css","JS","Gsap"],
       liveUrl: "https://github.com/Garvithindoliya16/NGO-WEB",
       githubUrl: "https://github.com/Garvithindoliya16"
     },
@@ -35,7 +35,7 @@ const Projects = () => {
       title: "Portfolio Website",
       description: "A responsive portfolio website showcasing creative work with smooth animations, optimized performance, and modern design.",
       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
-      technologies: ["Next.js", "SCSS", "Framer Motion", "Vercel", "CMS"],
+      technologies: ["Html","Css","JS","Gsap"],
       liveUrl: "https://garvithindoliya16.github.io/My-portfolio/",
       githubUrl: "https://github.com/Garvithindoliya16",
       featured: true
@@ -44,7 +44,7 @@ const Projects = () => {
       title: "Usability Hub",
       description: "Analytics dashboard for social media management with data visualization, scheduling tools, and performance metrics.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop",
-      technologies: ["React", "D3.js", "Express", "PostgreSQL", "JWT"],
+      technologies: ["Html","Css","JS"],
       liveUrl: "https://garvithindoliya16.github.io/Usabilityhub-clone/",
       githubUrl: "https://github.com/Garvithindoliya16"
     },
@@ -52,7 +52,7 @@ const Projects = () => {
       title: "Fitness Tracking App",
       description: "Mobile-first fitness application with workout tracking, progress visualization, and social features for motivation.",
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop",
-      technologies: ["React Native", "Firebase", "Chart.js", "Push Notifications"],
+      technologies: ["Html","Css","JS","Gsap","React","Framer motion"],
       liveUrl: "https://garvithindoliya16.github.io/Jai-Parshuram-Gym/",
       githubUrl: "https://github.com/Garvithindoliya16"
     }
