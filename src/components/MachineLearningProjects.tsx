@@ -2,10 +2,30 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Brain, TrendingUp, BarChart3, Database } from "lucide-react";
+import { ExternalLink, Github, Brain, TrendingUp, BarChart3, Database, Activity, Heart } from "lucide-react";
 
 const MachineLearningProjects = () => {
   const mlProjects = [
+    {
+      title: "Heart Stroke Prediction System",
+      description: "An advanced machine learning web application that predicts the likelihood of stroke based on clinical data including age, gender, hypertension, heart disease, and lifestyle factors. Built with Streamlit for interactive healthcare predictions.",
+      technologies: ["Python", "Streamlit", "Pandas", "Scikit-learn", "NumPy", "Matplotlib"],
+      accuracy: "High Accuracy",
+      features: [
+        "Interactive web interface with Streamlit",
+        "Real-time stroke risk assessment",
+        "Multiple clinical parameter inputs",
+        "Visual risk probability display",
+        "Healthcare-focused ML model"
+      ],
+      images: [
+        "/lovable-uploads/d155956a-38f1-4c2c-a34c-f41dc875f8d5.png"
+      ],
+      liveUrl: "https://heartstroke-prediction.streamlit.app/",
+      githubUrl: "https://github.com/Garvithindoliya16/Heart-Stroke-Prediction",
+      featured: true,
+      category: "Healthcare AI"
+    },
     {
       title: "Car Price Prediction Model",
       description: "A comprehensive machine learning project that predicts car prices based on various features like year, mileage, engine size, and fuel type. Achieved 83.87% accuracy using advanced regression techniques.",
@@ -25,7 +45,8 @@ const MachineLearningProjects = () => {
       ],
       liveUrl: "https://kaggle.com/code/garvithindoliya/notebook9777ad931b",
       githubUrl: "https://github.com/Garvithindoliya16",
-      featured: true
+      featured: false,
+      category: "Price Prediction"
     }
   ];
 
@@ -76,26 +97,44 @@ const MachineLearningProjects = () => {
           {mlProjects.map((project, index) => (
             <Card 
               key={index} 
-              className="group hover-scale transition-all duration-500 hover:shadow-2xl overflow-hidden border-0 bg-gradient-to-br from-background to-muted/30 backdrop-blur-sm relative animate-fade-in ring-2 ring-green-500/20"
+              className={`group hover-scale transition-all duration-500 hover:shadow-2xl overflow-hidden border-0 bg-gradient-to-br from-background to-muted/30 backdrop-blur-sm relative animate-fade-in ${
+                project.featured ? 'ring-2 ring-green-500/20' : 'ring-2 ring-blue-500/20'
+              }`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {project.featured && (
                 <div className="absolute top-2 right-2 md:top-4 md:right-4 z-20">
-                  <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-medium flex items-center gap-1">
-                    <Brain className="h-3 w-3 md:h-4 md:w-4" />
-                    <span className="hidden sm:inline">Featured ML Project</span>
+                  <div className={`${
+                    project.category === "Healthcare AI" 
+                      ? "bg-gradient-to-r from-red-500 to-pink-500" 
+                      : "bg-gradient-to-r from-green-500 to-blue-500"
+                    } text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-medium flex items-center gap-1`}>
+                    {project.category === "Healthcare AI" ? (
+                      <Heart className="h-3 w-3 md:h-4 md:w-4" />
+                    ) : (
+                      <Brain className="h-3 w-3 md:h-4 md:w-4" />
+                    )}
+                    <span className="hidden sm:inline">Featured {project.category}</span>
                     <span className="sm:hidden">Featured</span>
                   </div>
                 </div>
               )}
               
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className={`absolute inset-0 ${
+                project.category === "Healthcare AI" 
+                  ? "bg-gradient-to-br from-red-500/5 to-transparent" 
+                  : "bg-gradient-to-br from-green-500/5 to-transparent"
+                } opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
               
               <div className="grid lg:grid-cols-2 gap-8 p-8">
                 {/* Project Details */}
                 <div className="space-y-6">
                   <CardHeader className="p-0">
-                    <CardTitle className="text-2xl md:text-3xl text-foreground group-hover:bg-gradient-to-r group-hover:from-green-600 group-hover:to-blue-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                    <CardTitle className={`text-2xl md:text-3xl text-foreground group-hover:bg-gradient-to-r ${
+                      project.category === "Healthcare AI" 
+                        ? "group-hover:from-red-600 group-hover:to-pink-600" 
+                        : "group-hover:from-green-600 group-hover:to-blue-600"
+                      } group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300`}>
                       {project.title}
                     </CardTitle>
                   </CardHeader>
@@ -107,9 +146,19 @@ const MachineLearningProjects = () => {
                     
                     {/* Accuracy Badge */}
                     <div className="flex items-center gap-2">
-                      <TrendingUp className="h-5 w-5 text-green-500" />
-                      <span className="text-sm text-muted-foreground">Model Accuracy:</span>
-                      <Badge className="bg-gradient-to-r from-green-500 to-emerald-500 text-white border-0 text-lg px-3 py-1">
+                      {project.category === "Healthcare AI" ? (
+                        <Activity className="h-5 w-5 text-red-500" />
+                      ) : (
+                        <TrendingUp className="h-5 w-5 text-green-500" />
+                      )}
+                      <span className="text-sm text-muted-foreground">
+                        {project.category === "Healthcare AI" ? "Model Performance:" : "Model Accuracy:"}
+                      </span>
+                      <Badge className={`${
+                        project.category === "Healthcare AI" 
+                          ? "bg-gradient-to-r from-red-500 to-pink-500" 
+                          : "bg-gradient-to-r from-green-500 to-emerald-500"
+                        } text-white border-0 text-lg px-3 py-1`}>
                         {project.accuracy}
                       </Badge>
                     </div>
@@ -117,13 +166,19 @@ const MachineLearningProjects = () => {
                     {/* Key Features */}
                     <div className="space-y-3">
                       <h4 className="font-semibold text-foreground flex items-center gap-2">
-                        <BarChart3 className="h-4 w-4 text-blue-500" />
+                        <BarChart3 className={`h-4 w-4 ${
+                          project.category === "Healthcare AI" ? "text-red-500" : "text-blue-500"
+                        }`} />
                         Key Features
                       </h4>
                       <ul className="space-y-2">
                         {project.features.map((feature, featureIndex) => (
                           <li key={featureIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <div className="w-1.5 h-1.5 bg-gradient-to-r from-green-500 to-blue-500 rounded-full" />
+                            <div className={`w-1.5 h-1.5 ${
+                              project.category === "Healthcare AI" 
+                                ? "bg-gradient-to-r from-red-500 to-pink-500" 
+                                : "bg-gradient-to-r from-green-500 to-blue-500"
+                              } rounded-full`} />
                             {feature}
                           </li>
                         ))}
@@ -141,7 +196,11 @@ const MachineLearningProjects = () => {
                           <Badge 
                             key={tech} 
                             variant="outline" 
-                            className="border-green-500/20 hover:border-green-500/50 hover:bg-green-500/10 transition-all duration-300"
+                            className={`${
+                              project.category === "Healthcare AI" 
+                                ? "border-red-500/20 hover:border-red-500/50 hover:bg-red-500/10" 
+                                : "border-green-500/20 hover:border-green-500/50 hover:bg-green-500/10"
+                              } transition-all duration-300`}
                             style={{ animationDelay: `${techIndex * 50}ms` }}
                           >
                             {tech}
@@ -154,17 +213,25 @@ const MachineLearningProjects = () => {
                     <div className="flex gap-3 pt-4">
                       <Button 
                         size="sm" 
-                        className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 border-0 hover-scale"
-                        onClick={() => window.open('https://kaggle.com/code/garvithindoliya/notebook9777ad931b', '_blank')}
+                        className={`${
+                          project.category === "Healthcare AI" 
+                            ? "bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700" 
+                            : "bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
+                          } border-0 hover-scale`}
+                        onClick={() => window.open(project.liveUrl, '_blank')}
                       >
                         <ExternalLink className="h-4 w-4 mr-2" />
-                        View on Kaggle
+                        {project.category === "Healthcare AI" ? "Try Live App" : "View on Kaggle"}
                       </Button>
                       <Button 
                         size="sm" 
                         variant="outline" 
-                        className="border-green-500/30 hover:border-green-500/50 hover:bg-green-500/10 transition-all duration-300 hover-scale"
-                        onClick={() => window.open('https://github.com/Garvithindoliya16', '_blank')}
+                        className={`${
+                          project.category === "Healthcare AI" 
+                            ? "border-red-500/30 hover:border-red-500/50 hover:bg-red-500/10" 
+                            : "border-green-500/30 hover:border-green-500/50 hover:bg-green-500/10"
+                          } transition-all duration-300 hover-scale`}
+                        onClick={() => window.open(project.githubUrl, '_blank')}
                       >
                         <Github className="h-4 w-4 mr-2" />
                         Source Code
@@ -176,7 +243,9 @@ const MachineLearningProjects = () => {
                 {/* Project Images */}
                 <div className="space-y-4 relative">
                   <h4 className="font-semibold text-foreground flex items-center gap-2">
-                    <BarChart3 className="h-4 w-4 text-green-500" />
+                    <BarChart3 className={`h-4 w-4 ${
+                      project.category === "Healthcare AI" ? "text-red-500" : "text-green-500"
+                    }`} />
                     Project Showcase
                   </h4>
                   <div className="grid gap-4 relative">
@@ -185,7 +254,9 @@ const MachineLearningProjects = () => {
                         <img 
                           src={image} 
                           alt={`${project.title} - Analysis ${imgIndex + 1}`}
-                          className="w-full h-auto object-cover transition-all duration-500 group-hover/img:scale-105 group-hover/img:brightness-110 rounded-lg border border-green-500/20"
+                          className={`w-full h-auto object-cover transition-all duration-500 group-hover/img:scale-105 group-hover/img:brightness-110 rounded-lg border ${
+                            project.category === "Healthcare AI" ? "border-red-500/20" : "border-green-500/20"
+                          }`}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 rounded-lg" />
                       </div>
@@ -193,8 +264,16 @@ const MachineLearningProjects = () => {
                     
                     {/* Mobile 3D Elements */}
                     <div className="absolute -bottom-8 -left-8 lg:hidden animate-float">
-                      <div className="w-16 h-16 bg-gradient-to-br from-green-400/30 to-blue-400/30 rounded-xl transform rotate-12 backdrop-blur-sm border border-green-500/20 flex items-center justify-center">
-                        <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-md shadow-lg"></div>
+                      <div className={`w-16 h-16 ${
+                        project.category === "Healthcare AI" 
+                          ? "bg-gradient-to-br from-red-400/30 to-pink-400/30 border-red-500/20" 
+                          : "bg-gradient-to-br from-green-400/30 to-blue-400/30 border-green-500/20"
+                        } rounded-xl transform rotate-12 backdrop-blur-sm border flex items-center justify-center`}>
+                        <div className={`w-8 h-8 ${
+                          project.category === "Healthcare AI" 
+                            ? "bg-gradient-to-r from-red-500 to-pink-500" 
+                            : "bg-gradient-to-r from-green-500 to-blue-500"
+                          } rounded-md shadow-lg`}></div>
                       </div>
                     </div>
                     
