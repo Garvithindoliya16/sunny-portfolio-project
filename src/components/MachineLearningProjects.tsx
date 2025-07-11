@@ -1,4 +1,3 @@
-
 import ProjectHeader from "./ml-projects/ProjectHeader";
 import ProjectCard from "./ml-projects/ProjectCard";
 import BackgroundElements from "./ml-projects/BackgroundElements";
