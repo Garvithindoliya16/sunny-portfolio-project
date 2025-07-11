@@ -24,6 +24,16 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, index }: ProjectCardProps) => {
+  const handleLiveUrlClick = () => {
+    console.log('Live URL clicked:', project.liveUrl);
+    window.open(project.liveUrl, '_blank');
+  };
+
+  const handleGithubClick = () => {
+    console.log('GitHub URL clicked:', project.githubUrl);
+    window.open(project.githubUrl, '_blank');
+  };
+
   return (
     <Card 
       className={`group hover-scale transition-all duration-500 hover:shadow-2xl overflow-hidden border-0 bg-gradient-to-br from-background to-muted/30 backdrop-blur-sm relative animate-fade-in ${
@@ -147,7 +157,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
                     ? "bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700" 
                     : "bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
                   } border-0 hover-scale`}
-                onClick={() => window.open(project.liveUrl, '_blank')}
+                onClick={handleLiveUrlClick}
               >
                 <ExternalLink className="h-4 w-4 mr-2" />
                 {project.category === "Healthcare AI" ? "Try Live App" : "View on Kaggle"}
@@ -160,7 +170,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
                     ? "border-red-500/30 hover:border-red-500/50 hover:bg-red-500/10" 
                     : "border-green-500/30 hover:border-green-500/50 hover:bg-green-500/10"
                   } transition-all duration-300 hover-scale`}
-                onClick={() => window.open(project.githubUrl, '_blank')}
+                onClick={handleGithubClick}
               >
                 <Github className="h-4 w-4 mr-2" />
                 Source Code
