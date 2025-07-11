@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -13,7 +12,7 @@ const MachineLearningProjects = () => {
       accuracy: "High Accuracy",
       features: [
         "Interactive web interface with Streamlit",
-        "Real-time stroke risk assessment",
+        "Real-time stroke risk assessment", 
         "Multiple clinical parameter inputs",
         "Visual risk probability display",
         "Healthcare-focused ML model"
@@ -33,7 +32,7 @@ const MachineLearningProjects = () => {
       accuracy: "83.87%",
       features: [
         "Data preprocessing and cleaning",
-        "Correlation analysis with heatmaps", 
+        "Correlation analysis with heatmaps",
         "Feature engineering and selection",
         "Model training and validation",
         "Data visualization and insights"
