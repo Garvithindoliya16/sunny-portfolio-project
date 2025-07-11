@@ -8,7 +8,7 @@ const MachineLearningProjects = () => {
     {
       title: "Heart Stroke Prediction System",
       description: "An advanced machine learning web application that predicts the likelihood of stroke based on clinical data including age, gender, hypertension, heart disease, and lifestyle factors. Built with Streamlit for interactive healthcare predictions.",
-      technologies: ["Python", "Streamlit", "Pandas", "Scikit-learn", "NumPy", "Matplotlib"],
+      technologies: ["Python", "Streamlit", "Pandas", "Scikit-learn", "NumPy", "Matplotlib","Seaborn],
       accuracy: "High Accuracy",
       features: [
         "Interactive web interface with Streamlit",
@@ -21,7 +21,7 @@ const MachineLearningProjects = () => {
         "/lovable-uploads/d155956a-38f1-4c2c-a34c-f41dc875f8d5.png"
       ],
       liveUrl: "https://heartstroke-prediction.streamlit.app/",
-      githubUrl: "https://github.com/Garvithindoliya16/Heart-Stroke-Prediction",
+      githubUrl: "https://github.com/Garvithindoliya16/Heart-Stroke-Prediction,
       featured: true,
       category: "Healthcare AI"
     },
